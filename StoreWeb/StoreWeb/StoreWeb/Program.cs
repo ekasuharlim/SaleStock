@@ -11,8 +11,7 @@ namespace StoreWeb
         private static ILog m_log;
 
         static void Main(string[] args)
-        {
-            m_log = LogManager.GetLogger("StoreWeb");
+        {            m_log = LogManager.GetLogger("StoreWeb");
 
             var uri = "http://localhost:8881";
 

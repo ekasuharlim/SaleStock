@@ -11,7 +11,7 @@ namespace StoreWeb
     {
         public HomeModule()
         {
-            Get["/"] = parameters => "<h1>Welcome to StoreWeb!</h1>";
+            Get["/"] = parameters => { return View["frontpage.html"]; };
         }
     }
 }
