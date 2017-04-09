@@ -1,14 +1,22 @@
 ﻿using Nancy;
+using System.Collections.Generic;
+using ProductModules.Domain;
+using ProductModules.Repository.Interface;
+using log4net;
 
 namespace ProductModules.Modules
 {
     public class ProductList : NancyModule
     {
-        public ProductList() : base("/ProductList")
+        public ProductList(ILog logger, IProductListRepository repository) : base("/ProductList")
         {
-            Get["/"] = parameters =>
+            
+            Get["/Page/{page:int}/"] = parameters =>
             {
-                return "ProductList";
+                logger.Info("Geetting ProductList");
+                IEnumerable<Product> products = repository.GetPagedItem(parameters.page, 10);
+                logger.Info("End ProductList");
+                return products;
             };
         }
     }

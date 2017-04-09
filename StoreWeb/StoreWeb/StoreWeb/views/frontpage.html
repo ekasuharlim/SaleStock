@@ -1,8 +1,23 @@
 ﻿@Master['MasterPage']
 
 @Section['Content']
-<div ng-app="">
-    <p>Name: <input type="text" ng-model="name"></p>
-    <p ng-bind="name"></p>
+<script type="text/javascript">
+    angular.module('frontPage', [])
+    .controller('productList', function ($scope, $http) {
+        $http.get('http://localhost:8881/productlist/page/1').
+            then(function (response) {
+                $scope.productList = response.data;
+            });
+    });
+</script>
+
+<div ng-app="frontPage" ng-controller="productList">
+    <table>
+        <tr ng-repeat="x in productList">
+            <td>-</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.price }}</td>
+        </tr>
+    </table>
 </div>
 @EndSection

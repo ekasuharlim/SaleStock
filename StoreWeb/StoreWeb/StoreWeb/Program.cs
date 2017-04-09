@@ -3,6 +3,7 @@ using Mono.Unix.Native;
 using Nancy.Hosting.Self;
 using System;
 using log4net;
+using System.Configuration;
 
 namespace StoreWeb
 {
@@ -11,9 +12,10 @@ namespace StoreWeb
         private static ILog m_log;
 
         static void Main(string[] args)
-        {            m_log = LogManager.GetLogger("StoreWeb");
+        {
+            m_log = LogManager.GetLogger("StoreWeb");
 
-            var uri = "http://localhost:8881";
+            var uri = ConfigurationManager.AppSettings["listeningUri"];
 
             m_log.Info(String.Format("Starting StoreWeb on {0}", uri));
 
