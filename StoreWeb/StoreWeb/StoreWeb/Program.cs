@@ -4,6 +4,7 @@ using Nancy.Hosting.Self;
 using System;
 using log4net;
 using System.Configuration;
+using StoreWeb.Constant;
 
 namespace StoreWeb
 {
@@ -13,7 +14,7 @@ namespace StoreWeb
 
         static void Main(string[] args)
         {
-            m_log = LogManager.GetLogger("StoreWeb");
+            m_log = LogManager.GetLogger(Setting.LogInstance);
 
             var uri = ConfigurationManager.AppSettings["listeningUri"];
 

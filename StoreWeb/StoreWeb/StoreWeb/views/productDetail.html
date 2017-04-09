@@ -1,0 +1,15 @@
+﻿@Master['MasterPage']
+
+@Section['Content']
+
+<script src="/Content/Js/Product.js"></script>
+
+<div ng-app="ourShop" ng-controller="productDetail">
+    <div ng-init="ShowProduct('@Model.ProductId')">
+        Name {{product.name}}<br />
+        Price {{product.price}}<br />
+        Description {{product.description}}<br />
+    </div>
+</div>
+
+@EndSection

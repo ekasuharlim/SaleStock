@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Nancy;
-using StoreWeb.Responses;
+﻿using Nancy;
 using StoreWeb.Repository.Interface;
 using log4net;
 
@@ -14,7 +10,7 @@ namespace StoreWeb.Modules
             Get["/Page/{page:int}/"] = parameters =>
             {
                 logger.Info("Getting ProductList");
-                var result =   productService.GetProductListOnPage(parameters.page);
+                var result =  productService.GetProductListOnPage(parameters.page);
                 logger.Info("End ProductList");
                 return result;
             };

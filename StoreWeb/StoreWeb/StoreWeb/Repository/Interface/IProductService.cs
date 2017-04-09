@@ -10,5 +10,8 @@ namespace StoreWeb.Repository.Interface
     public interface IProductService
     {
         IEnumerable<ProductListResponse> GetProductListOnPage(int pageNo);
+
+        ProductDetailResponse GetProductDetail(int productId);
+
     }
 }

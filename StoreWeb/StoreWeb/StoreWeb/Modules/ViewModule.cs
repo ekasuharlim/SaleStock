@@ -7,11 +7,13 @@ using Nancy;
 
 namespace StoreWeb
 {
-    public class HomeModule : NancyModule
+    public class ViewModule : NancyModule
     {
-        public HomeModule()
+        public ViewModule()
         {
             Get["/"] = parameters => { return View["frontpage.html"]; };
+            Get["/View/Product/{ProductId}"] = parameters => { return View["ProductDetail.html", parameters]; };
+
         }
     }
 }

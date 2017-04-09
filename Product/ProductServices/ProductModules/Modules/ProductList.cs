@@ -14,6 +14,7 @@ namespace ProductModules.Modules
             Get["/Page/{page:int}/"] = parameters =>
             {
                 logger.Info("Geetting ProductList");
+                logger.Debug(string.Format("Page {0}", parameters.page));
                 IEnumerable<Product> products = repository.GetPagedItem(parameters.page, 10);
                 logger.Info("End ProductList");
                 return products;

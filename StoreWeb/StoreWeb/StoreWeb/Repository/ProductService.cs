@@ -8,11 +8,20 @@ using StoreWeb.Constant;
 
 namespace StoreWeb.Repository
 {
-    public class ProductListService : IProductService
+    public class ProductService : IProductService
     {
+        public ProductDetailResponse GetProductDetail(int productId)
+        {
+            var client = new RestClient(Setting.ProductServiceEndPoint);
+            var request = new RestRequest("/ProductDetail/{ProductId}");
+            request.AddUrlSegment("ProductId", productId.ToString());
+            var response = client.Execute<ProductDetailResponse>(request);
+            return response.Data;
+        }
+
         public IEnumerable<ProductListResponse> GetProductListOnPage(int pageNo)
         {
-            var client = new RestClient(EndPoint.ProductService);
+            var client = new RestClient(Setting.ProductServiceEndPoint);
             var request = new RestRequest("/ProductList/Page/{pageNo}");
             request.AddUrlSegment("pageNo", pageNo.ToString());
             var response = client.Execute<List<ProductListResponse>>(request);

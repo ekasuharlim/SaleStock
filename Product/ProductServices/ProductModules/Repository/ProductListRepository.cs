@@ -6,10 +6,10 @@ using ProductModules.Repository.Interface;
 
 namespace ProductModules.Repository
 {
-    public class ProductListRepository : IProductListRepository
+    public class ProductRepository : IProductListRepository, IProductRepository
     {
         List<Product> m_productData;
-        public ProductListRepository()
+        public ProductRepository()
         {
             m_productData = new List<Product>();
             m_productData.Add(new Product { ProductId = 1, ArticleNo = "ABC", Name = "SHIRT A", ImageName = "SHRIT1", Description = "DESC",Price = 1000});
@@ -37,6 +37,11 @@ namespace ProductModules.Repository
         {
             return m_productData.Skip((pageNo - 1) * count).Take(count);
             
+        }
+
+        public Product GetProductDetail(int productId)
+        {
+            return m_productData.Single(p => p.ProductId == productId);
         }
     }
 }
