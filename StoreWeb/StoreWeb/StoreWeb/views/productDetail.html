@@ -9,13 +9,66 @@
 
 <div ng-app="ourShop" ng-controller="productDetail"> 
     <div ng-init="ShowProduct('@Model.ProductId')">
-        Name {{product.name}}<br />
-        Price {{product.price}}<br />
-        Description {{product.description}}<br />
-        <a href="#" ng-click="AddToCart(product.productId)"> Add to Cart </a> <br />
-        Items on Cart {{ItemsOnCart}}
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    <!-- *** LEFT COLUMN ***
+                _________________________________________________________ -->
+
+                    <div class="col-md-9">
+
+                        <div class="row" id="productMain">
+                            <div class="col-sm-6">
+                                <div id="mainImage">
+                                    <img src="/Content/img/{{product.imageName}}" alt="" height="300" width="300">
+                                </div>
+                                <div class="ribbon sale">
+                                    <div class="theribbon">SALE</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="box">
+
+                                    <form>
+                                        <h3>Items on Cart {{ItemsOnCart}}</h3>
+
+                                        <p>{{product.description}}</p>
+
+                                        <p class="price">Rp {{product.price}}</p>
+
+                                        <p class="text-center">
+                                            <button ng-click="AddToCart(product.productId)" type="button" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                            <button ng-click="CheckOut()" type="button" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Check Out</button>
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-9 -->
+                    <!-- *** LEFT COLUMN END *** -->
+                    <!-- *** RIGHT COLUMN ***
+                _________________________________________________________ -->
+
+                    <div class="col-sm-3">
+                    </div>
+                    <!-- /.col-md-3 -->
+                    <!-- *** RIGHT COLUMN END *** -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+
         <br />
-        <a href="#" ng-click="CheckOut()"> Check Out</a> <br />
     </div>
 </div>
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,Log4net"/>
+  </configSections>
+  <log4net>
+    <appender name="RollingFileAppender" type="log4net.Appender.RollingFileAppender">
+      <file value="D:\temp\log\StoreWeb.log"/>
+      <appendToFile value="true"/>
+      <rollingStyle value="Size"/>
+      <maxSizeRollBackups value="5"/>
+      <maximumFileSize value="10MB"/>
+      <staticLogFileName value="true"/>
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%date [%thread] %level %logger - %message%newline"/>
+      </layout>
+    </appender>
+    <appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender">
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%date [%thread] %level %logger - %message%newline"/>
+      </layout>
+    </appender>
+    <root>
+      <level value="All"/>
+      <!-- If the following line is not included the log file 
+      will not be created even if log4net is configured with this file. -->
+      <appender-ref ref="RollingFileAppender"/>
+      <appender-ref ref="ConsoleAppender"/>
+    </root>
+  </log4net>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5"/>
+  </startup>
+  <appSettings>
+    <add key="listeningUri" value="http://localhost:8881"/>
+    <add key="ProductServiceEndPoint" value="http://localhost:8882"/>
+    <add key="CartServiceEndPoint" value="http://localhost:8883"/>
+    <add key="log4net.Internal.Debug" value="false"/>    
+  </appSettings>
+  <system.diagnostics>
+    <trace autoflush="true">
+      <listeners>
+        <add
+            name="textWriterTraceListener"
+            type="System.Diagnostics.TextWriterTraceListener"
+            initializeData="D:\temp\log\log4net.txt" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
+</configuration>

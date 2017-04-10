@@ -9,15 +9,55 @@
 
 <div ng-app="ourShop" ng-controller="CheckOut"> 
     <div ng-init="ShowCart()">
-        <table>
-            <tr ng-repeat="x in productList">
-                <td>-</td>
-                <td>{{ x.name }}</td>
-                <td>{{ x.price }}</td>
-            </tr>
-        </table>
-        <a ng-click="AddMore()">Continue shoping</a>
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-9 clearfix" id="basket">
+
+                        <div class="box">
+
+                            <form method="post" action="shop-checkout1.html">
+
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Product</th>
+                                                <th>Unit price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="x in productList">
+                                                <td>
+                                                    <a href="#">
+                                                        <img src="/Content/img/{{x.imageName}}">
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="#">{{x.name}}</a>
+                                                </td>
+                                                <td>Rp {{x.price}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+
+                                <div class="box-footer">
+                                    <div class="pull-left">
+                                        <a ng-click="AddMore()" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-@EndSection
+            @EndSection

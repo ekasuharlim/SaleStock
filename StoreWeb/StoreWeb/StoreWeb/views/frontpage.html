@@ -5,13 +5,32 @@
 <script src="/Content/Js/Product.js"></script>
 
 <div ng-app="ourShop" ng-controller="productList">
-    <table>
-        <tr ng-repeat="x in productList">
-            <td>-</td>
-            <td>{{ x.name }}</td>
-            <td>{{ x.price }}</td>
-            <td ng-click="ShowDetail(x.productId)">Detail</td>
-        </tr>
-    </table>
-</div>
+    <div id="content">
+        <div class="container">
+
+            <div class="row products">
+
+                <div class="col-md-3 col-sm-4" ng-repeat="p in productList">
+                    <div class="product">
+                        <div class="image">
+                            <a ng-click="ShowDetail(p.productId)">
+                                <img src="/Content/img/{{p.imageName}}" alt="" class="img-responsive image1">
+                            </a>
+                        </div>
+                        <!-- /.image -->
+                        <div class="text">
+                            <h3><a ng-click="ShowDetail(p.productId)">{{p.name}}</a></h3>
+                            <p class="price">Rp {{p.price}}</p>
+                            <p class="buttons">
+                                <a ng-click="ShowDetail(p.productId)" class="btn btn-default">View detail</a>
+                            </p>
+                        </div>
+                        <!-- /.text -->
+                    </div>
+                    <!-- /.product -->
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
 @EndSection
