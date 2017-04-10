@@ -1,0 +1,23 @@
+﻿@Master['MasterPage']
+
+@Section['Content']
+
+<script src="/Content/Js/Product.js"></script>
+<script type="text/javascript">
+</script>
+
+
+<div ng-app="ourShop" ng-controller="CheckOut"> 
+    <div ng-init="ShowCart()">
+        <table>
+            <tr ng-repeat="x in productList">
+                <td>-</td>
+                <td>{{ x.name }}</td>
+                <td>{{ x.price }}</td>
+            </tr>
+        </table>
+        <a ng-click="AddMore()">Continue shoping</a>
+    </div>
+</div>
+
+@EndSection

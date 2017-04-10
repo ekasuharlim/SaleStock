@@ -1,14 +1,12 @@
 ﻿using System.Configuration;
 
-namespace StoreWeb.Constant
+namespace CartService.Constant
 {
     public static class Setting
     {
         public static string ProductServiceEndPoint = ConfigurationManager.AppSettings["ProductServiceEndPoint"];
 
-        public static string CartServiceEndPoint = ConfigurationManager.AppSettings["CartServiceEndPoint"];
-
-        public static string LogInstance = "StoreWeb";
+        public static string LogInstance = "CardService";
 
     }
 }

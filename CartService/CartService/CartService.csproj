@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{488AB03D-B787-4CE5-BC40-A03778BD7CF4}</ProjectGuid>
+    <ProjectGuid>{53996D40-336A-47A9-A91D-E9C3590F38D1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StoreWeb</RootNamespace>
-    <AssemblyName>StoreWeb</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>CartService</RootNamespace>
+    <AssemblyName>CartService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -19,11 +19,10 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Output\</OutputPath>
+    <OutputPath>..\Output\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +32,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -68,46 +66,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant\Setting.cs" />
+    <Compile Include="Domain\Cart.cs" />
     <Compile Include="Modules\CartModule.cs" />
-    <Compile Include="Modules\ViewModule.cs" />
-    <Compile Include="Modules\ProductDetailModule.cs" />
-    <Compile Include="Modules\ProductListModule.cs" />
-    <Compile Include="NancyConfig\Bootstraper.cs" />
+    <Compile Include="NancyConfig\BootStraper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CartService\CartService.cs" />
-    <Compile Include="Repository\CartService\Contract\CartAddRequest.cs" />
-    <Compile Include="Repository\CartService\Contract\CartAddResponse.cs" />
-    <Compile Include="Repository\Interface\ICartService.cs" />
-    <Compile Include="Repository\Interface\IProductService.cs" />
-    <Compile Include="Repository\ProductService.cs" />
-    <Compile Include="Responses\CartResponse.cs" />
-    <Compile Include="Responses\GetCartResponse.cs" />
-    <Compile Include="Responses\ProductDetailResponse.cs" />
-    <Compile Include="Responses\ProductListResponses.cs" />
+    <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\Interface\ICartRepository.cs" />
+    <Compile Include="Request\CartAddRequest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="views\masterpage.sshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\Js\Product.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="views\checkout.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="views\productDetail.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="views\frontpage.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

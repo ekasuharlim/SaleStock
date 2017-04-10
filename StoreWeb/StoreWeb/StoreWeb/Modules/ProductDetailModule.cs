@@ -10,10 +10,11 @@ namespace StoreWeb.Modules
             Get["/{ProductId:int}"] = parameters =>
             {
                 logger.Info("Getting ProductDetail");
+                logger.Debug(this.Request.Cookies["CartId"]);
                 logger.Debug(parameters.ProductId);
                 var result = productService.GetProductDetail(parameters.ProductId);
-                return result;
                 logger.Info("End ProductDetail");
+                return result;
             };
         }
 

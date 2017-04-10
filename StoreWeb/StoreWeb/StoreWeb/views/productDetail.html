@@ -3,12 +3,19 @@
 @Section['Content']
 
 <script src="/Content/Js/Product.js"></script>
+<script type="text/javascript">
+</script>
 
-<div ng-app="ourShop" ng-controller="productDetail">
+
+<div ng-app="ourShop" ng-controller="productDetail"> 
     <div ng-init="ShowProduct('@Model.ProductId')">
         Name {{product.name}}<br />
         Price {{product.price}}<br />
         Description {{product.description}}<br />
+        <a href="#" ng-click="AddToCart(product.productId)"> Add to Cart </a> <br />
+        Items on Cart {{ItemsOnCart}}
+        <br />
+        <a href="#" ng-click="CheckOut()"> Check Out</a> <br />
     </div>
 </div>
 
